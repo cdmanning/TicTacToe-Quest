@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color> <!---->
+    <color name="pastel_pink">#df9bd0</color> <!---->
+    <color name="pastel_blue">#8fc2e1</color> <!---->
+    <color name="pastel_green">#a7e2af</color> <!---->
+
+
+    <color name="white">#FFFFFF</color> <!---->
+    <color name="light_gray">#D3D3D3</color> <!---->
+    <color name="dark_gray">#424242</color> <!---->
+
+    <!--Start Button Background-->
+    <color name="coral_red_light">#e9abaa</color>
+    <color name="coral_red_middle">#fc8388</color>
+    <color name="coral_red_dark">#fd6e76</color>
+
+    <!--Settings Button-->
+    <color name="button_blue">#7eb8f5</color>
+
+    <color name="button_blue_light">#6eb1ff</color>
+    <color name="button_blue_middle">#67AEFF</color>
+    <color name="button_blue_dark">#5FA7EE</color>
+
+    <color name="button_yellow_light">#fdce61</color>
+    <color name="button_yellow_middle">#faca5a</color>
+    <color name="button_yellow_dark">#f0cb69</color>
+
+    <color name="button_yellow">#FFD700</color> <!---->
+
+    <color name="edittext_border_blue">#7BA3DE</color> <!---->
+    <color name="edittext_border_yellow">#F9D070</color> <!---->
+
+
+
+
+
+
+
+    <color name="tan_background">#E6D9B5</color>
+    <color name="red_exit_button">#c93636</color>
+    <color name="linear_gradient_a">#BFEF88</color>
+    <color name="linear_gradient_b">#FFFFB1</color>
+    <color name="linear_gradient_Yellow_accent">#78BB9E</color>
+
+    <color name="red">#c93636</color>
+    <color name="blue">#0000FF</color>
+    <color name="game_button_color">#d1cbba</color>
+</resources>

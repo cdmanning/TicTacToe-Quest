@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_menu"
+    tools:context="com.starswept.tictactoequest.multiplayer_game">
+
+    <GridLayout
+        android:id="@+id/Game_Top_Grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:useDefaultMargins="true"
+        app:layout_constraintBottom_toTopOf="@+id/light_grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TurnPlayerText"
+            android:layout_width="218dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:text="@string/Current_Player"
+            android:textSize="28sp"
+            style="@style/WhiteTextWithShadow"/>
+
+        <TextView
+            android:id="@+id/CurrentPlayerSymbol"
+            android:layout_width="389dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:text=""
+            android:textSize="26sp"
+            android:textAlignment="center"
+            style="@style/WhiteTextWithShadow" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/light_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:useDefaultMargins="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button00"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/button01"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button02"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button10"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button11"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button12"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button20"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button21"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/button22"
+            style="@style/TicTacToeButtonSquare"
+            app:backgroundTint="@null"/>
+    </GridLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exit_button"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="74dp"
+        android:layout_marginTop="48dp"
+        app:cornerRadius="30dp"
+
+        app:backgroundTint="@null"
+        android:background="@drawable/bg_start_button"
+
+        android:textSize="28sp"
+        style="@style/WhiteTextWithShadow"
+
+        android:text="@string/Leave"
+
+        app:icon="@drawable/ic_exit"
+        app:iconGravity="start"
+        app:iconPadding="-36dp"
+        app:iconSize="40dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/light_grid"
+        app:layout_constraintVertical_bias="0.214" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

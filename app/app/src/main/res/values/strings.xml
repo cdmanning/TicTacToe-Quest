@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">TicTacToe Quest</string>
+    <string name="simplified_game_name">Tic Tac Toe</string>
+    <string name="player_input_one">Player 1 Name</string>
+    <string name="player_input_two">Player 2 Name</string>
+    <string name="start_game">Start Game</string>
+    <string name="achievements">Achievements</string>
+    <string name="computer">Computer</string>
+    <string name="cd_settings_button">Settings Button</string>
+    <string name="cd_achievements_button">Achievements Button</string>
+    <string name="singleplayer">Singleplayer</string>
+    <string name="multiplayer">Multiplayer</string>
+
+
+
+
+    <string name="x">X</string>
+    <string name="o">O</string>
+    <string name="Current_Player">Current Player:</string>
+    <string name="Player_1">Player 1:</string>
+    <string name="Player_2">Player 2:</string>
+    <string name="NewGame">New Game</string>
+    <string name="Leave">Leave</string>
+    <string name="hello_blank_fragment">Hello</string>
+
+</resources>

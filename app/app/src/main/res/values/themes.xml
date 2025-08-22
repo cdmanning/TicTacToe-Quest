@@ -1,0 +1,43 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TicTacToeQuest" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.TicTacToeQuest" parent="Base.Theme.TicTacToeQuest" />
+
+    <style name="TicTacToeButtonRound">
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:backgroundTint">@color/game_button_color</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/comicsans_resource</item>
+    </style>
+
+    <style name="TicTacToeButtonSquare">
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:background">@drawable/tictactoe_btn_border</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/comicsans_resource</item>
+        <item name="android:shadowColor">#66000000</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+    <style name="WhiteTextWithShadow">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/comic_sans</item>
+        <item name="android:shadowColor">#66000000</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+
+    </style>
+</resources>
