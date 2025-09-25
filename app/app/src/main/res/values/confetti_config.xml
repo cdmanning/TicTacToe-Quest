@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Emission settings -->
+    <integer name="confetti_emission_duration">18000</integer>
+    <integer name="confetti_emission_rate">10</integer>
+
+    <!-- Velocity settings -->
+    <integer name="confetti_velocity_x_min">0</integer>
+    <integer name="confetti_velocity_x_max">100</integer>
+    <integer name="confetti_velocity_y_min">350</integer>
+    <integer name="confetti_velocity_y_max">100</integer>
+    <integer name="confetti_target_velocity_y">500</integer>
+
+    <!-- Acceleration settings -->
+    <integer name="confetti_acceleration_y_base">100</integer>
+    <integer name="confetti_acceleration_y_variance">50</integer>
+
+    <!-- Rotational velocity settings -->
+    <integer name="confetti_rotational_velocity_min">120</integer>
+    <integer name="confetti_rotational_velocity_max">120</integer>
+
+    <!-- Source adjustment -->
+    <integer name="confetti_source_y_offset">-30</integer>
+</resources>

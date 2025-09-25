@@ -3,6 +3,7 @@ package com.starswept.tictactoequest;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 
 public class multiplayer_game extends Fragment {
@@ -42,9 +45,6 @@ public class multiplayer_game extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_multiplayer_game, container, false);
 
-
-   //     Player_1_NameTextView = (TextView) view.findViewById(R.id.Player_1_Name);
-  //      Player_2_NameTextView = (TextView) view.findViewById(R.id.Player_2_Name);
         CurrentPlayerSymbol = (TextView) view.findViewById(R.id.CurrentPlayerSymbol);
 
         button00 = (Button) view.findViewById(R.id.button00);
@@ -60,8 +60,8 @@ public class multiplayer_game extends Fragment {
         Bundle bundle=getArguments();
         if(bundle != null){
             //Extracts the strings from the bundle
-            playerOneNameIs = bundle.getString("playerOne", null);
-            playerTwoNameIs = bundle.getString("playerTwo", null);
+            playerOneNameIs = bundle.getString("playerOneNameIs", null);
+            playerTwoNameIs = bundle.getString("playerTwoNameIs", null);
         }
         //Default Values
         currentPlayerIs = playerOneNameIs;
@@ -148,7 +148,7 @@ public class multiplayer_game extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment fragment = new home();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.nav_host_fragment, fragment ).commit();
 
@@ -162,33 +162,33 @@ public class multiplayer_game extends Fragment {
 
 
     public void onButtonClick(int row, int col,Button currentButton) {
-
-        if (currentGameInstance.isSelected(row, col)) {
-
-        }else{
+        if (!currentGameInstance.isSelected(row, col)) {
             currentGameInstance.selectGridSpace(row, col);
             currentButton.setText(getCurrentPlayerIcon());
             currentButton.setTextColor(getCurrentPlayerColor());
-
             if (currentGameInstance.isGameOver()) {
-
-
-                if (currentGameInstance.isWinner()) {
-                    createPopUp(1);
-                } else {
-                    createPopUp(2);
-                }
-
-
-
+                game_victory_screen victory_screen_components = getGameVictoryScreen();
+                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, victory_screen_components).commit();
             } else {
                 changeCurrentPlayer();
                 getCurrentPlayerColor();
                 CurrentPlayerSymbol.setText(currentPlayerIs);
-
-
             }
         }
+    }
+
+    @NonNull
+    private game_victory_screen getGameVictoryScreen() {
+        Bundle transferBundle = new Bundle();
+        game_victory_screen victory_screen_components = new game_victory_screen();
+        if (currentGameInstance.isWinner()) {
+            transferBundle.putString("winningPlayer", currentPlayerIs);
+            transferBundle.putString("playerOneNameIs", playerOneNameIs);
+            transferBundle.putString("playerTwoNameIs", playerTwoNameIs);
+            victory_screen_components.setArguments(transferBundle);
+        }
+        return victory_screen_components;
     }
 
 

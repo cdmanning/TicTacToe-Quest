@@ -1,35 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/victory_screen_layout"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_menu"
+    tools:context=".main_activity">
+
+    <!-- TROPHY ICON -->
+    <!-- Player Icon Everywhere -->
 
 
-    <android.widget.Button
+    <com.github.jinatonic.confetti.ConfettiView
+        android:id="@+id/confetti_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="@string/congratulations"
+        android:textSize="30sp"
+        style="@style/WhiteTextWithShadow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/winnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        style="@style/WhiteTextWithShadow"
+        android:text="JAMISON"
+        android:textSize="56sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:shadowColor="@color/gold_glow"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/new_game_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:background="@drawable/round_shape_btn_start_game"
-        android:fontFamily="@font/comic_sans"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginTop="140dp"
+        app:cornerRadius="30dp"
         android:text="@string/NewGame"
-        android:textColor="@color/black"
+        android:textSize="26sp"
+        style="@style/WhiteTextWithShadow"
+        app:backgroundTint="@null"
+        android:background="@drawable/bg_start_button"
+        app:icon="@drawable/ic_single_player"
+        app:iconGravity="start"
+        app:iconPadding="-30dp"
+        app:iconSize="34dp"
+        app:layout_constraintTop_toBottomOf="@id/winnerName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        android:textSize="30sp"
-        tools:ignore="MissingConstraints" />
-    <android.widget.Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/exit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:background="@drawable/round_shape_btn_start_game"
-        android:fontFamily="@font/comic_sans"
-        android:text="@string/NewGame"
-        android:textColor="@color/black"
-
-        android:textSize="30sp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginTop="48dp"
+        app:cornerRadius="30dp"
+        android:text="@string/home"
+        android:textSize="26sp"
+        style="@style/WhiteTextWithShadow"
+        app:backgroundTint="@null"
+        android:background="@drawable/bg_start_button"
+        app:icon="@drawable/ic_single_player"
+        app:iconGravity="start"
+        app:iconPadding="-30dp"
+        app:iconSize="34dp"
+        app:layout_constraintTop_toBottomOf="@id/new_game_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

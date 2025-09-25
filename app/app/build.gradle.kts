@@ -32,11 +32,12 @@ android {
 }
 
 dependencies {
-
+    implementation("com.github.jinatonic.confetti:confetti:1.1.2")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.ui.graphics)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

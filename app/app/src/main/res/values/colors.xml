@@ -34,8 +34,8 @@
 
 
 
-
-
+    <color name="gold">#d7cb9a</color>
+    <color name="gold_glow">#FFFFC107</color>
 
     <color name="tan_background">#E6D9B5</color>
     <color name="red_exit_button">#c93636</color>

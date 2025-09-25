@@ -12,7 +12,7 @@ import android.widget.EditText;
 public class multiplayer_menu extends Fragment{
     Button  startGameButton;
     EditText playerOneEditText, playerTwoEditText;
-    String playerOne, playerTwo;
+    String playerOneNameIs, playerTwoNameIs;
 
     public multiplayer_menu() {
         // Required empty public constructor
@@ -35,34 +35,35 @@ public class multiplayer_menu extends Fragment{
             @Override
             public void onClick(View view) {
 
-                playerOne = playerOneEditText.getText().toString();
-                playerTwo = playerTwoEditText.getText().toString();
+                playerOneNameIs = playerOneEditText.getText().toString();
+                playerTwoNameIs = playerTwoEditText.getText().toString();
+
 
                 //Check string length first them resize
-                if (playerOne.length() > 9){
-                    playerOne  = playerOne.substring(0, 7);
-                    playerOne  = playerOne + "..";
+                if (playerOneNameIs.length() > 20){
+                    playerOneNameIs  = playerOneNameIs.substring(0, 17);
+                    playerOneNameIs  = playerOneNameIs + "..";
                 }
-                if (playerTwo.length() > 9){
-                    playerTwo  = playerTwo.substring(0, 7);
-                    playerTwo  = playerTwo + "..";
+                if (playerTwoNameIs.length() > 20){
+                    playerTwoNameIs  = playerTwoNameIs.substring(0, 17);
+                    playerTwoNameIs  = playerTwoNameIs + "..";
                 }
 
                 //Handles cases where fields are left empty
-                if (playerOne.equals(playerTwo) & !playerOne.isEmpty())  {
-                    playerOne = playerOne+" #1";
-                    playerTwo = playerTwo+" #2";
+                if (playerOneNameIs.equals(playerTwoNameIs) & !playerOneNameIs.isEmpty())  {
+                    playerOneNameIs = playerOneNameIs+" #1";
+                    playerTwoNameIs = playerTwoNameIs+" #2";
                 }else {
-                    if (playerOne.isEmpty()) {
-                        playerOne = "Player #1";
+                    if (playerOneNameIs.isEmpty()) {
+                        playerOneNameIs = "Player #1";
                     }
-                    if (playerTwo.isEmpty()) {
-                        playerTwo = "Player #2";
+                    if (playerTwoNameIs.isEmpty()) {
+                        playerTwoNameIs = "Player #2";
                     }
                 }
 
-                transferBundle.putString("playerOne", playerOne);
-                transferBundle.putString("playerTwo", playerTwo);
+                transferBundle.putString("playerOneNameIs", playerOneNameIs);
+                transferBundle.putString("playerTwoNameIs", playerTwoNameIs);
                 multiplayer_game playerNames = new multiplayer_game();
                 playerNames.setArguments(transferBundle);
 
