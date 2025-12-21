@@ -1,0 +1,31 @@
+# --- Android Studio / IDE Basics ---
+.gradle/
+.idea/
+*.iml
+local.properties
+/build/
+**/build/
+Captures/
+.externalNativeBuild
+.cxx
+*.jks
+*.keystore
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Project Specific Secrets ---
+# If you eventually add Firebase or API keys
+google-services.json
+.env
+
+# --- Distribution Artifacts ---
+# Prevents finished APKs/Bundles from being uploaded
+*.apk
+*.aab
+
+
+.gradle/
+app/.gradle/
+app/local.properties
