@@ -1,43 +1,32 @@
 package com.starswept.tictactoequest;
-
 import android.app.AlertDialog;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.Objects;
-
-
 public class multiplayer_game extends Fragment {
     public multiplayer_game() {
         // Required empty public constructor
     }
 
-
     View view;
-
     String playerOneNameIs, playerTwoNameIs;
-
     String currentPlayerIs;
+    public static final String IS_TIE_KEY = "isTie";
 
     //XML Imports
     TextView CurrentPlayerSymbol;
-
     Button button00, button01, button02;
     Button button10, button11, button12;
     Button button20, button21, button22;
-
     Button new_game_button, exit_button;
 
-    // create  objects
     TicTacToeGame currentGameInstance;
 
     @Override
@@ -77,7 +66,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button00);
             }
         });
-
         button01.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 0;
@@ -85,7 +73,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button01);
             }
         });
-
         button02.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 0;
@@ -93,7 +80,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button02);
             }
         });
-
         button10.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 1;
@@ -101,7 +87,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button10);
             }
         });
-
         button11.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 1;
@@ -109,7 +94,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button11);
             }
         });
-
         button12.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 1;
@@ -117,7 +101,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button12);
             }
         });
-
         button20.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 2;
@@ -125,7 +108,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button20);
             }
         });
-
         button21.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 2;
@@ -133,7 +115,6 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button21);
             }
         });
-
         button22.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int row = 2;
@@ -141,22 +122,15 @@ public class multiplayer_game extends Fragment {
                 onButtonClick(row, col,button22);
             }
         });
-
-        //onClick event for the Exit Button
         exit_button = view.findViewById(R.id.exit_button);
         exit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment fragment = new home();
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-
                 transaction.replace(R.id.nav_host_fragment, fragment ).commit();
-
             }
         });
-
-
-
         return view;
     }
 
@@ -186,11 +160,14 @@ public class multiplayer_game extends Fragment {
             transferBundle.putString("winningPlayer", currentPlayerIs);
             transferBundle.putString("playerOneNameIs", playerOneNameIs);
             transferBundle.putString("playerTwoNameIs", playerTwoNameIs);
+            transferBundle.putBoolean(IS_TIE_KEY, false);
+            victory_screen_components.setArguments(transferBundle);
+        } else if (currentGameInstance.isTie()) {
+            transferBundle.putBoolean(IS_TIE_KEY, true);
             victory_screen_components.setArguments(transferBundle);
         }
         return victory_screen_components;
     }
-
 
     public void changeCurrentPlayer() {
         if (currentPlayerIs.equals(playerOneNameIs)) {
@@ -201,7 +178,6 @@ public class multiplayer_game extends Fragment {
             currentPlayerIs = playerOneNameIs;
         }
     }
-
 
     public String getCurrentPlayerIcon(){
         if (currentPlayerIs.equals(playerOneNameIs)) {
@@ -214,7 +190,6 @@ public class multiplayer_game extends Fragment {
 
     }
 
-
     public Integer getCurrentPlayerColor(){
         if (currentPlayerIs.equals(playerOneNameIs)) {
             return this.getResources().getColor(R.color.edittext_border_yellow);
@@ -223,55 +198,14 @@ public class multiplayer_game extends Fragment {
         }
     }
 
-
-    public void createPopUp(int gameOverState){
-        if (gameOverState == 1){
-            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(view.getContext());
-
-            // Set the message show for the Alert time
-            alertBuilder.setMessage(currentPlayerIs+ " is the winner!");
-
-            // Set Alert Title
-            alertBuilder.setTitle("Congratulations!");
-
-            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-            alertBuilder.setCancelable(true);
-
-            // Create the Alert dialog
-            AlertDialog alertDialog = alertBuilder.create();
-            // Show the Alert Dialog box
-            alertDialog.show();
-        }
-        else if (gameOverState == 2){
-            AlertDialog.Builder alertBuilder = new AlertDialog.Builder(view.getContext());
-
-            // Set Alert Title
-            alertBuilder.setTitle("It's a Tie!");
-
-            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-            alertBuilder.setCancelable(true);
-
-            // Create the Alert dialog
-            AlertDialog alertDialog = alertBuilder.create();
-            // Show the Alert Dialog box
-            alertDialog.show();
-        }
-
-    }
-
     public class TicTacToeGame {
 
         public static final int GRID_SIZE = 3;
-
-        // Creates an array of integer values
         private Integer[][] mTicTacToeGrid;
-
-        //Resizes the array using the GRID_SIZE
         public TicTacToeGame() {
             mTicTacToeGrid = new Integer[GRID_SIZE][GRID_SIZE];
         }
 
-        //Initializes the values in the array to 0.
         public void newGame() {
             for (int row = 0; row < GRID_SIZE; row++) {
                 for (int col = 0; col < GRID_SIZE; col++) {
@@ -287,7 +221,6 @@ public class multiplayer_game extends Fragment {
             }
             return false;
         }
-
 
         //Identifies the turn player and changes the button accordingly
         public void selectGridSpace(int row, int col) {
@@ -324,7 +257,6 @@ public class multiplayer_game extends Fragment {
                 for (int col = 0; col < GRID_SIZE; col++) {
                     line_total = line_total +  mTicTacToeGrid[row][col];
                     if (line_total == 3 || line_total == -3) {
-
                         return true;
                     }
                 }
@@ -336,7 +268,6 @@ public class multiplayer_game extends Fragment {
                 for (int row = 0; row < GRID_SIZE; row++) {
                     line_total = line_total +  mTicTacToeGrid[row][col];
                     if (line_total == 3 || line_total == -3) {
-
                         return true;
                     }
                 }
@@ -348,7 +279,6 @@ public class multiplayer_game extends Fragment {
                 downwardSumAngle = downwardSumAngle + mTicTacToeGrid[i][i];
             }
             if (downwardSumAngle == -3 || downwardSumAngle == 3) {
-
                 return true;
             }
 
@@ -356,31 +286,17 @@ public class multiplayer_game extends Fragment {
             int upwardSumAngle = 0;
             upwardSumAngle = mTicTacToeGrid[0][2] + mTicTacToeGrid[1][1] + mTicTacToeGrid[2][0];
             if (upwardSumAngle == -3 || upwardSumAngle == 3) {
-
                 return true;
             }
             return false;
         }
 
-        //Handles logic between isWinner() and isFull() to decide when the game is over
-        //Called by the onClick button in GameFragment.java
         public boolean isGameOver() {
-            //If the grid is full and there is not a winner: end the game
-            if (isFull() && !(isWinner())){
-                return true;
-            }
-            //If the there is a winner: end the game
-            return isWinner();
+            return isWinner() || isTie();
+        }
+
+        public boolean isTie() {
+            return isFull() && !isWinner();
         }
     }
-
-
-
-
 }
-
-
-
-
-
-

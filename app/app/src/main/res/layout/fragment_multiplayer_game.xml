@@ -97,7 +97,6 @@
             app:backgroundTint="@null"/>
     </GridLayout>
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/exit_button"
         android:layout_width="0dp"
@@ -105,27 +104,20 @@
         android:layout_marginHorizontal="74dp"
         android:layout_marginTop="48dp"
         app:cornerRadius="30dp"
-
         app:backgroundTint="@null"
         android:background="@drawable/bg_start_button"
-
         android:textSize="28sp"
         style="@style/WhiteTextWithShadow"
-
         android:text="@string/Leave"
-
         app:icon="@drawable/ic_exit"
         app:iconGravity="start"
         app:iconPadding="-36dp"
         app:iconSize="40dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/light_grid"
         app:layout_constraintVertical_bias="0.214" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

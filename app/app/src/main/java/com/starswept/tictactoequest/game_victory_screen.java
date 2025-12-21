@@ -28,9 +28,12 @@ public class game_victory_screen extends Fragment {
     public game_victory_screen() {
         // Required empty public constructor
     }
+
     View view;
     String playerOneNameIs, playerTwoNameIs;
+    private static final String aiPlayerNameIs = "AI Player";
     String winningPlayerIs;
+    boolean isTie;
     TextView WinnerNameField;
     Button new_game_button, exit_button;
     int orange_confetti = Color.rgb(236,188,154);
@@ -44,12 +47,27 @@ public class game_victory_screen extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_game_victory_screen, container, false);
         WinnerNameField = (TextView) view.findViewById(R.id.winnerName);
+        achievement_tracker achievementtracker = new achievement_tracker(requireContext());
         Bundle transferBundle=getArguments();
         if(transferBundle != null){
+            isTie = transferBundle.getBoolean(multiplayer_game.IS_TIE_KEY, false);
             winningPlayerIs = transferBundle.getString("winningPlayer", null);
             playerOneNameIs = transferBundle.getString("playerOneNameIs", null);
             playerTwoNameIs = transferBundle.getString("playerTwoNameIs", null);
-            WinnerNameField.setText(winningPlayerIs);
+            if (isTie) {
+                WinnerNameField.setText(R.string.GameEndsInTie);
+            } else {
+                final boolean isSinglePlayer = aiPlayerNameIs.equals(playerTwoNameIs);
+                if (isSinglePlayer) {
+                    if (winningPlayerIs != null && winningPlayerIs.equals(playerOneNameIs)) {
+                        WinnerNameField.setText(R.string.PlayerWinsAgainstAI);
+                    } else if (winningPlayerIs != null && winningPlayerIs.equals(aiPlayerNameIs)) {
+                        WinnerNameField.setText(R.string.AIWinsAgainstPlayer);
+                    }
+                } else {
+                    WinnerNameField.setText(winningPlayerIs);
+                }
+            }
         }
         exit_button = view.findViewById(R.id.exit_button);
         exit_button.setOnClickListener(new View.OnClickListener() {
@@ -64,18 +82,55 @@ public class game_victory_screen extends Fragment {
         new_game_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                achievementtracker.incrementNewGamesStarted();
                 if(transferBundle != null) {
-                    transferBundle.putString("playerOneNameIs", playerOneNameIs);
-                    transferBundle.putString("playerTwoNameIs", playerTwoNameIs);
-                    multiplayer_game playerNames = new multiplayer_game();
-                    playerNames.setArguments(transferBundle);
-                    FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, playerNames).commit();
+                    // New Singleplayer Game
+                    if (aiPlayerNameIs.equals(playerTwoNameIs)) {
+                        String playerName = "Your Turn";
+                        Bundle args = new Bundle();
+                        args.putString("playerOneNameIs", playerName);
+                        Fragment fragment = new singleplayer_game();
+                        fragment.setArguments(args);
+                        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.nav_host_fragment, fragment ).commit();
+                    // New Multiplayer Game
+                    } else {
+                        transferBundle.putString("playerOneNameIs", playerOneNameIs);
+                        transferBundle.putString("playerTwoNameIs", playerTwoNameIs);
+                        multiplayer_game playerNames = new multiplayer_game();
+                        playerNames.setArguments(transferBundle);
+                        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.nav_host_fragment, playerNames).commit();
+                    }
                 }
             }
         });
+
+        // Update Achievement Values
+        final boolean isSinglePlayer = aiPlayerNameIs.equals(playerTwoNameIs);
+        if (!isTie) {
+            if (isSinglePlayer) {
+                if (winningPlayerIs != null && winningPlayerIs.equals(playerOneNameIs)) {
+                    // TODO: Add achievements for winning against the bot
+                } else if (winningPlayerIs != null && winningPlayerIs.equals(aiPlayerNameIs)) {
+                    // TODO: Add achievements for losing against the bot
+                }
+            } else {
+                if (winningPlayerIs != null && winningPlayerIs.equals(playerOneNameIs)) {
+                    achievementtracker.incrementPlayerOneWins();
+                } else if (winningPlayerIs != null && winningPlayerIs.equals(playerTwoNameIs)) {
+                    achievementtracker.incrementPlayerTwoWins();
+                }
+            }
+        } else {
+            achievementtracker.incrementTiesCount();
+        }
+        // TODO: Add achievements checking for playerOneName and playerTwoName conditions
+        achievementtracker.incrementCompletedGames();
+
         return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

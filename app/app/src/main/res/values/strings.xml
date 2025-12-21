@@ -11,9 +11,6 @@
     <string name="singleplayer">Singleplayer</string>
     <string name="multiplayer">Multiplayer</string>
 
-
-
-
     <string name="x">X</string>
     <string name="o">O</string>
     <string name="Current_Player">Current Player:</string>
@@ -23,6 +20,35 @@
     <string name="Leave">Leave</string>
     <string name="home">Home</string>
     <string name="congratulations">CONGRATULATIONS!</string>
+    <string name="GameEndsInTie">It\'s a Tie!</string>
+    <string name="PlayerWinsAgainstAI">You Won!</string>
+    <string name="AIWinsAgainstPlayer">You Lose!</string>
 
+    <!-- Achievement Strings -->
+    <string name="completed_achievement">Complete!</string>
+    <string name="rookie_winner_p1">Rookie Winner (P1)</string>
+    <string name="win_5_games_as_player_one">Win 5 games as Player One</string>
+    <string name="veteran_challenger_p1">Veteran Challenger (P1)</string>
+    <string name="win_10_games_as_player_one">Win 10 games as Player One</string>
+    <string name="grandmaster_p1">Grandmaster (P1)</string>
+    <string name="win_20_games_as_player_one">Win 20 games as Player One</string>
+    <string name="rookie_winner_p2">Rookie Winner (P2)</string>
+    <string name="win_5_games_as_player_two">Win 5 games as Player Two</string>
+    <string name="veteran_challenger_p2">Veteran Challenger (P2)</string>
+    <string name="win_10_games_as_player_two">Win 10 games as Player Two</string>
+    <string name="grandmaster_p2">Grandmaster (P2)</string>
+    <string name="win_20_games_as_player_two">Win 20 games as Player Two</string>
+    <string name="stalemate">Stalemate</string>
+    <string name="tie_10_games">Tie 10 games</string>
+    <string name="evenly_matched">Evenly Matched</string>
+    <string name="tie_20_games">Tie 20 games</string>
+    <string name="perfectly_balanced">Perfectly Balanced</string>
+    <string name="tie_50_games">Tie 50 games</string>
+    <string name="casual_player">Casual Player</string>
+    <string name="play_50_games">Play 50 games</string>
+    <string name="hardcore_gamer">Hardcore Gamer</string>
+    <string name="play_100_games">Play 100 games</string>
+    <string name="new_game_plus">New Game+</string>
+    <string name="hidden_value">\? \? \? \? \? \?</string>
 
 </resources>

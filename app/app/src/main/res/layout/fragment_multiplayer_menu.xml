@@ -25,6 +25,7 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="64dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edittext_player1"
         android:fontFamily="@font/comic_sans"
         android:hint="@string/player_input_one"
@@ -41,6 +42,7 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="24dp"
+        android:autofillHints=""
         android:background="@drawable/bg_edittext_player2"
         android:fontFamily="@font/comic_sans"
         android:hint="@string/player_input_two"
@@ -66,6 +68,5 @@
         app:layout_constraintTop_toBottomOf="@id/player2NameEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

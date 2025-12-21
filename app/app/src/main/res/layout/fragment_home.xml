@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/singlePlayerButton"
         android:layout_width="0dp"
@@ -39,7 +38,6 @@
         app:layout_constraintTop_toBottomOf="@id/titleTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/multiPlayerButton"
@@ -61,7 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <ImageButton
         android:id="@+id/settingsButton"
         android:layout_width="72dp"
@@ -75,8 +72,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/achievementsButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed" />
-
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:visibility="invisible"/>
 
     <ImageButton
         android:id="@+id/achievementsButton"
@@ -91,6 +88,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/settingsButton"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
