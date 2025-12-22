@@ -62,7 +62,7 @@ A native Android implementation of the game TicTacToe built in Java. Supporting 
         | **Helpful Guide**            | Knowledge is power                           | Open the Game Guide                                          |
         | **Starcrossed**              | A match written in the stars                 | Play a game as Romeo vs Juliet                               |
         | **Night Owl**                | Burning the midnight oil                     | Play a game between 12 AM and 4 AM                           |
-        | **Stinker **                 | Watch your mouth                             | Use Profane Language in player name                          |
+        | **Stinker**                  | Watch your mouth                             | Use Profane Language in player name                          |
         | **Historical Upset**         | A Cold War reversal                          | Bobby vs Borris where Borris Wins                            |
         | **Match of the Century**     | The King of Chess                            | Bobby vs Borris where Bobby Wins.                            |
         | **The 11th Hour**            | Cutting it close                             | Win a game on the last possible move                         |
@@ -97,4 +97,5 @@ A native Android implementation of the game TicTacToe built in Java. Supporting 
 
 ## 7. Future Features (v2)
 * Unlockable cosmetics/sounds/theme from achievements
+
 
