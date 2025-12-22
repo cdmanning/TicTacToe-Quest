@@ -43,7 +43,7 @@ A native Android implementation of the game TicTacToe built in Java. Supporting 
     * A collection of milestones that increment/unlock based on gameplay events.
  
         <details>
-        <summary><b>View Achievement List</b></summary>
+        <summary><b>View Planned Achievement List</b></summary>
 
         |      Achievement Name        |                     Hint                     |                        Requirement                           |
         | :--------------------------: | :------------------------------------------: | :----------------------------------------------------------: |
@@ -97,3 +97,4 @@ A native Android implementation of the game TicTacToe built in Java. Supporting 
 
 ## 7. Future Features (v2)
 * Unlockable cosmetics/sounds/theme from achievements
+
