@@ -23,6 +23,9 @@ import com.github.jinatonic.confetti.confetto.Confetto;
 import java.util.Random;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class game_victory_screen extends Fragment {
     public game_victory_screen() {
@@ -125,7 +128,43 @@ public class game_victory_screen extends Fragment {
         } else {
             achievementtracker.incrementTiesCount();
         }
-        // TODO: Add achievements checking for playerOneName and playerTwoName conditions
+
+        // Update Profanity Achievement
+        if (!achievementtracker.isProfanityAchievementUnlocked()) {
+            boolean profanityFound = false;
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(requireContext().getAssets().open("english/bad_words.txt")));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String badWord = line.trim().toLowerCase();
+                    if ((playerOneNameIs != null && playerOneNameIs.toLowerCase().contains(badWord)) || (playerTwoNameIs != null && playerTwoNameIs.toLowerCase().contains(badWord))) {
+                        profanityFound = true;
+                        break;
+                    }
+                }
+                reader.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            if (profanityFound) {
+                achievementtracker.unlockProfanityAchievement();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         achievementtracker.incrementCompletedGames();
 
         return view;

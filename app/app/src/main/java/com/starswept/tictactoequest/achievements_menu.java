@@ -29,7 +29,10 @@ public class achievements_menu extends Fragment {
     private TextView recordPlayFifty;
     private TextView recordPlayOneHundred;
     private TextView recordNewGamePlus;
+    private TextView recordStinker;
+
     private achievement_tracker achievementtracker;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +52,7 @@ public class achievements_menu extends Fragment {
         recordPlayFifty = view.findViewById(R.id.recordPlayFifty);
         recordPlayOneHundred = view.findViewById(R.id.recordPlayOneHundred);
         recordNewGamePlus = view.findViewById(R.id.recordNewGamePlus);
+        recordStinker = view.findViewById(R.id.recordStinker);
 
         // Fetch and display achievement data
         achievementtracker = new achievement_tracker(requireContext());
@@ -71,6 +75,8 @@ public class achievements_menu extends Fragment {
         int totalTieCount = achievementtracker.getTiesCount();
         int totalCompletedGames = achievementtracker.getCompletedGames();
         int totalNewGamesStarted = achievementtracker.getNewGamesStarted();
+        boolean profanityHasBeenUsed = achievementtracker.isProfanityAchievementUnlocked();
+
         if (playerOneWinCount < 5) {
             String progress = playerOneWinCount + " / 5";
             recordPlayerOneWinFive.setText(progress);
@@ -142,6 +148,12 @@ public class achievements_menu extends Fragment {
             recordNewGamePlus.setText(progress);
         } else {
             recordNewGamePlus.setText(R.string.completed_achievement);
+        }
+
+        if (profanityHasBeenUsed) {
+            recordStinker.setText(R.string.completed_achievement);
+        } else {
+            recordStinker.setText(R.string.incompleted_achievement);
         }
         // TODO: Change the icon color as wins increases
         // TODO: Add conditionals to hide/reveal new tiers

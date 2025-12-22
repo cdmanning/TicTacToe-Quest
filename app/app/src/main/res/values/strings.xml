@@ -26,6 +26,7 @@
 
     <!-- Achievement Strings -->
     <string name="completed_achievement">Complete!</string>
+    <string name="incompleted_achievement">Incomplete!</string>
     <string name="rookie_winner_p1">Rookie Winner (P1)</string>
     <string name="win_5_games_as_player_one">Win 5 games as Player One</string>
     <string name="veteran_challenger_p1">Veteran Challenger (P1)</string>
@@ -51,4 +52,6 @@
     <string name="new_game_plus">New Game+</string>
     <string name="hidden_value">\? \? \? \? \? \?</string>
 
+    <string name="stinker">Stinker</string>
+    <string name="stinker_hint">Watch your mouth</string>
 </resources>

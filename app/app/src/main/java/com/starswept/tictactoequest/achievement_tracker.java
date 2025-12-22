@@ -10,6 +10,7 @@ public class achievement_tracker {
     private static final String KEY_TIES = "tiesCount";
     private static final String KEY_COMPLETED_GAMES = "completedGames";
     private static final String KEY_NEW_GAMES_STARTED = "newGamesStartedCount";
+    private static final String KEY_PROFANITY_UNLOCKED = "profanityAchievementUnlocked";
     private SharedPreferences sharedPrefs;
 
     public achievement_tracker(Context context) {
@@ -36,6 +37,10 @@ public class achievement_tracker {
         return sharedPrefs.getInt(KEY_NEW_GAMES_STARTED, 0);
     }
 
+    public boolean isProfanityAchievementUnlocked() {
+        return sharedPrefs.getBoolean(KEY_PROFANITY_UNLOCKED, false);
+    }
+
     public void incrementPlayerOneWins() {
         int newCount = getPlayerOneWins() + 1;
         sharedPrefs.edit().putInt(KEY_P1_WINS, newCount).apply();
@@ -60,4 +65,9 @@ public class achievement_tracker {
         int newCount = getNewGamesStarted() + 1;
         sharedPrefs.edit().putInt(KEY_NEW_GAMES_STARTED, newCount).apply();
     }
+
+    public void unlockProfanityAchievement() {
+        sharedPrefs.edit().putBoolean(KEY_PROFANITY_UNLOCKED, true).apply();
+    }
+
 }
