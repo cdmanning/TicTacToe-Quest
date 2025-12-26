@@ -133,7 +133,7 @@ public class game_victory_screen extends Fragment {
         if (!achievementtracker.isProfanityAchievementUnlocked()) {
             boolean profanityFound = false;
             try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(requireContext().getAssets().open("english/bad_words.txt")));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(requireContext().getAssets().open("english/stinker.txt")));
                 String line;
                 while ((line = reader.readLine()) != null) {
                     String badWord = line.trim().toLowerCase();
