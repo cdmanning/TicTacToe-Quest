@@ -72,7 +72,12 @@ A native Android implementation of the game TicTacToe built in Java. Supporting 
         | **Cornered**                 | Controlling the edges                        | Win by occupying all 4 corners of the grid                   |
         | **Ego Booster**              | Share your thoughts                          | Rate the app in the app store                                |
         | **Deja Vu**                  | Haven't we been here before                  | Finish a game with the exact same layout as the previous one |
-      
+        | **Happy Groundhog Day**      | How does this keep happening?                | Two games with the exact same moves.                         |
+        | **A Dynamic Game**           | Justice is best served in pairs.             | Play a game as Batman and Robbin                             |
+        | **Elementary Triumph**       | Is the game afoot or TicTacToe?              | Play a game as Sherlock Holmes and Dr. Watson                |              
+        | **Don't Try It**             | A bold move, but poorly calculated.          | Win as Obi-Wan against Anakin                                |
+
+
         </details>
       
 * **Settings & Preferences**
